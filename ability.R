@@ -1,7 +1,7 @@
 library(tidyverse)
 library(ggthemes)
 
-setwd('D:/R/data/')
+setwd('c:/R/data/')
 
 inji <- read.csv('inji.csv', stringsAsFactors = TRUE)
 
@@ -38,7 +38,7 @@ ability %>% ggplot(aes(x = fct_relevel(fct_reorder(div, value), '전체', after 
   labs(y = '대학교육을 통한 능력향상(4점 척도)',
        x = NULL, 
        caption = '출처 : 김은영, 대학의 교수·학습 질 제고 전략 탐색 연구(VIII), 한국교육개발원, 2020') +
-  scale_y_continuous(labels = scales::percent_format(scale = 1)) + 
+#  scale_y_continuous(labels = scales::percent_format(scale = 1)) + 
   scale_color_manual(values = c('darkgreen', 'red'), name = '연도') +
   scale_shape_manual(values = c('circle', 'square'), name = '연도')
 
@@ -51,4 +51,5 @@ ability_origin %>% mutate(diff = `2020` - `2019`) %>% arrange(desc(diff))
 inji_origin <- read.csv('inji.csv', stringsAsFactors = TRUE)
 colnames(inji_origin) <- c('div', '2017', '2019')
 inji_origin %>% mutate(diff = `2019` - `2017`) %>% arrange(desc(diff))
+
 
